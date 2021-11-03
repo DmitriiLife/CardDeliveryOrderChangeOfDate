@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/flx2yuv9nvaq0ekk?svg=true)](https://ci.appveyor.com/project/DmitriiLife/carddeliveryorder-changeofdate)
