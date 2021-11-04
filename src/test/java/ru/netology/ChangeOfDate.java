@@ -1,6 +1,5 @@
 package ru.netology;
 
-import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -39,8 +38,9 @@ public class ChangeOfDate {
         String reDate = DataGenerator.getDate(9);
         $("[data-test-id='date'] input").setValue(reDate);
         $$("button").find(exactText("Запланировать")).click();
-        $(withText("У вас уже запланирована встреча на другую дату. Перепланировать?")).shouldBe(visible, Duration.ofSeconds(7));
-            $(withText("Перепланировать?")).click();
+        $(withText("У вас уже запланирована встреча на другую дату. Перепланировать?"))
+                .shouldBe(visible, Duration.ofSeconds(7));
+        $(withText("Перепланировать?")).click();
         $("[data-test-id='success-notification'] .notification__content")
                 .shouldBe(visible, Duration.ofSeconds(7))
                 .shouldHave(exactText("Встреча успешно запланирована на " + reDate));
