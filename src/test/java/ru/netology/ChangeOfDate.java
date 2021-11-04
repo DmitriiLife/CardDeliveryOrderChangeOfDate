@@ -1,6 +1,5 @@
 package ru.netology;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,18 +32,17 @@ public class ChangeOfDate {
         $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Запланировать")).click();
         $("[data-test-id='success-notification'] .notification__content")
-                .shouldBe(appear, Duration.ofSeconds(7))
+                .shouldBe(visible, Duration.ofSeconds(7))
                 .shouldBe(exactText("Встреча успешно запланирована на " + date))
                 .click();
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         String reDate = DataGenerator.getDate(9);
         $("[data-test-id='date'] input").setValue(reDate);
         $$("button").find(exactText("Запланировать")).click();
-        $(withText("У вас уже запланирована встреча на другую дату. Перепланировать?"))
-                .shouldBe(visible, Duration.ofSeconds(7))
-                .click();
+        $(withText("У вас уже запланирована встреча на другую дату. Перепланировать?")).shouldBe(visible, Duration.ofSeconds(7));
+            $(withText("Перепланировать?")).click();
         $("[data-test-id='success-notification'] .notification__content")
-                .shouldBe(appear, Duration.ofSeconds(7))
+                .shouldBe(visible, Duration.ofSeconds(7))
                 .shouldHave(exactText("Встреча успешно запланирована на " + reDate));
 
     }
