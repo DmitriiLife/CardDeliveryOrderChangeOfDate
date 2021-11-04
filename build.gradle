@@ -20,12 +20,13 @@ dependencies {
 
     testCompileOnly 'org.projectlombok:lombok:1.18.22'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
-
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.0.0'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.8.1'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
+    testImplementation group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.32'
     implementation 'org.projectlombok:lombok:1.18.22'
     implementation 'org.jetbrains:annotations:22.0.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     testImplementation 'com.codeborne:selenide:6.0.3'
-    testImplementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
 }
 
