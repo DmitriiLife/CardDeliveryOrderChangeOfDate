@@ -1,6 +1,7 @@
 package ru.netology;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.selector.ByText;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -32,20 +33,21 @@ public class ChangeOfDate {
         $("[data-test-id=agreement]").click();
         $$("button").find(exactText("Запланировать")).click();
         $("[data-test-id='success-notification'] .notification__content")
-                .shouldBe(appear, Duration.ofSeconds(4))
+                .shouldBe(appear, Duration.ofSeconds(7))
                 .shouldBe(exactText("Встреча успешно запланирована на " + date))
                 .click();
         $("[data-test-id='date'] input").doubleClick().sendKeys(Keys.BACK_SPACE);
         String reDate = DataGenerator.getDate(9);
         $("[data-test-id='date'] input").setValue(reDate);
         $$("button").find(exactText("Запланировать")).click();
-        $("[data-test-id='replan-notification'] .notification__content")
-                .shouldBe(visible, Duration.ofSeconds(4))
-                .shouldBe(exactText("У вас уже запланирована встреча на другую дату. Перепланировать?"))
+        $(withText("У вас уже запланирована встреча на другую дату. Перепланировать?"))
+                .shouldBe(visible, Duration.ofSeconds(7))
                 .click();
         $("[data-test-id='success-notification'] .notification__content")
-                .shouldBe(appear, Duration.ofSeconds(4))
-                .shouldBe(exactText("Встреча успешно запланирована на " + reDate));
+                .shouldBe(appear, Duration.ofSeconds(7))
+                .shouldHave(exactText("Встреча успешно запланирована на " + reDate));
 
     }
 }
+// $("[data-test-id='replan-notification'] .notification__content")
+//.shouldHave(exactText("У вас уже запланирована встреча на другую дату. Перепланировать?"))

@@ -24,7 +24,7 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.22'
     implementation 'org.jetbrains:annotations:22.0.0'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-    testImplementation 'com.codeborne:selenide:5.25.0-selenium-4.0.0'
+    testImplementation 'com.codeborne:selenide:6.0.3'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
     testImplementation 'com.github.javafaker:javafaker:1.0.2'
 }
