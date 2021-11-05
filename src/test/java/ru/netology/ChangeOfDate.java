@@ -3,7 +3,6 @@ package ru.netology;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import ru.netology.utils.DataGenerator;
 
 import java.time.Duration;
 
@@ -47,5 +46,3 @@ public class ChangeOfDate {
 
     }
 }
-// $("[data-test-id='replan-notification'] .notification__content")
-//.shouldHave(exactText("У вас уже запланирована встреча на другую дату. Перепланировать?"))
